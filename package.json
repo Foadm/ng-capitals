@@ -1,0 +1,22 @@
+{
+  "name": "ng-capitals",
+  "version": "1.0.0",
+  "description": "Countries and capitals app using AngularJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/Foadm/ng-capitals"
+  },
+  "author": "Foad Mozaffari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Foadm/ng-capitals/issues"
+  },
+  "homepage": "https://github.com/Foadm/ng-capitals",
+  "devDependencies": {
+    "gulp-connect": "^2.0.6"
+  }
+}
