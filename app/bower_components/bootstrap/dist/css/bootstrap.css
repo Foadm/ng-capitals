@@ -6201,3 +6201,11 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+.header{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.country-table{
+  height:500px;
+  overflow: scroll;
+}

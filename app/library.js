@@ -13,5 +13,10 @@ angular.module('App')
                 url: URL_PATH,
                 params: request
             })
-        };
+        }
+        .factory("countryDetail", function($http,$routeParams, $scope){
+                $scope.country_code = $routeParams.country;
+                return function(){console.log($scope.country_code);}
+
+            })
     })

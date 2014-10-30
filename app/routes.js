@@ -8,15 +8,15 @@ angular.module('App', ['ngRoute'])
             templateUrl : 'views/home/home.html',
             controller : 'HomeCtrl'
         })
-            .when('/list', {
+            .when('/countries', {
                 templateUrl : 'views/list/list.html',
-                //controller : 'ListCtrl'
+                controller : 'ListCtrl'
             })
-            .when('/detail', {
+            .when('/countries/:country', {
                 templateUrl : 'views/detail/detail.html',
-                //controller : 'DetailCtrl'
+                controller : 'DetailCtrl'
             })
-            .otherwise({
-                redirectTo : '/error'
-            })
+            //.otherwise({
+              //  redirectTo : '/error'
+            //})
     });

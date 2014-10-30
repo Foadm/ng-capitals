@@ -3,11 +3,6 @@
  */
 angular.module('App')
     .controller('HomeCtrl', function($scope,CountryInfo){
-        $scope.submit = function(){
-            CountryInfo().
-            success(function(data){
-                $scope.result = data;
-            })
-        }
+
     })
 

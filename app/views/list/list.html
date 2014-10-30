@@ -1,1 +1,29 @@
-<h1>list</h1>
+<div class="row" ng-controller="ListCtrl">
+    <div class="country-table">
+        <table class="table table-bordered table-hover">
+           <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Country Code</th>
+                    <th>Capital</th>
+                    <th>Area in KM2</th>
+                    <th>Population</th>
+                    <th>Continent</th>
+                </tr>
+           <tbody>
+                 <tr ng-repeat="country in result.geonames" ng-click="select_country(country.countryCode)">
+                    <td><a href="#/countries/{{country.countryCode}}">{{country.countryName}}</a></td>
+                    <td>{{country.countryCode}}</td>
+                    <td>{{country.capital}}</td>
+                    <td>{{country.areaInSqKm}}</td>
+                    <td>{{country.population}}</td>
+                    <td>{{country.continentName}}</td>
+                 </tr>
+           </tbody>
+           </thead>
+        </table>
+    </div>
+    <div class="text-center" style="margin-top: 12px;">
+        <a class="btn btn-primary" href="#/">Home</a>
+    </div>
+</div>
