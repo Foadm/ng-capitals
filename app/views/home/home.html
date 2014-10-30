@@ -1,0 +1,10 @@
+
+<div class="row" ng-controller="HomeCtrl">
+    <p>
+        <input name="myInput" ng-model="myModel">
+    </p>
+    <button class="btn btn-primary" ng-click="submit()">Browse Countries</button>
+    <div ng-repeat="country in result.geonames">
+        {{country.countryName}}
+    </div>
+</div>

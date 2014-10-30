@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Countries and Capitals</title>
+    <!-- build:css ./_assets/combined.css -->
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- endbuild -->
+    <!-- build:css ./_assets/combined.css -->
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="routes.js"></script>
+    <script type="text/javascript" src="library.js"></script>
+    <script type="text/javascript" src="views/home/home.js"></script>
+    <script type="text/javascript" src="views/detail/detail.js"></script>
+    <script type="text/javascript" src="views/list/list.js"></script>
+    <!-- endbuild -->
+</head>
+<body ng-app="App">
+    <div class="container">
+        <div ng-view>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -10,3 +10,17 @@ gulp.task('connect', function() {
         port: 8888
     });
 });
+// gulp.task('default', ['connect]); example of mapping a task
+gulp.task('copy-html-files', function(){
+    gulp.src(['./app/**/*.html', './app/*.html'], {base: './app'})
+});
+gulp.task('usemin', function() {
+    gulp.src('./app/index.html')
+        .pipe(usemin({
+            css: [minifyCss(), 'concat', rev()],
+            js: [uglify(), rev()]
+        }))
+        .pipe(gulp.dest('build/'));
+});
+
+gulp.task('build', ['copy-html-files', 'usemin']);
