@@ -2,16 +2,39 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
         <h3>{{result.geonames[0].countryName}}</h3>
-        <div class="col-md-6 text-right"><strong>Population of Country</strong></div>
-        <div class="col-md-6">{{result.geonames[0].population}}</div>
-        <div class="col-md-6 text-right"><strong>Area</strong></div>
-        <div class="col-md-6">{{result.geonames[0].areaInSqKm}} square km </div>
-        <div class="col-md-6 text-right"><strong>Capital</strong></div>
-        <div class="col-md-6">{{result.geonames[0].capital}}</div>
-        <div class="col-md-6 text-right"><strong>Population of capital</strong></div>
-        <div class="col-md-6">{{capResult.geonames[0].population}}</div>
-        <div class="col-md-6 text-right"><strong>3 neighbors</strong></div>
-        <div class="col-md-6">{{result.geonames[0].areaInSqKm}}</div>
+        <table class="table table-bordered table-hover">
+            <tbody>
+            <tr>
+                <td>Population of Country</td>
+                <td>{{result.geonames[0].population}}</td>
+            </tr>
+            <tr>
+                <td>Area</td>
+                <td>{{result.geonames[0].areaInSqKm}} square km</td>
+            </tr>
+            <tr>
+                <td>Capital</td>
+                <td>{{result.geonames[0].capital}}</td>
+            </tr>
+            <tr>
+                <td>Population of capital</td>
+                <td>{{capResult.geonames[0].population}}</td>
+            </tr>
+            <tr>
+                <td>3 neighbors</td>
+                <td>
+                   <span ng-repeat="neighbors in neighborResult.geonames | filter:query | limitTo:quantity">
+                       <a href="#/countries/{{neighbors.countryCode}}">{{neighbors.countryName}}</a> </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <div class="3"></div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3"><img src="http://www.geonames.org/flags/x/{{result.geonames[0].countryCode | lowercase}}.gif" style="width:100%;"/></div>
+    <div class="col-md-3"><img id='myImage' src="http://www.geonames.org/img/country/250/{{result.geonames[0].countryCode}}.png" /></div>
+    <div class="col-md-3"></div>
 </div>
