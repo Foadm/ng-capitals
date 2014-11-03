@@ -4,15 +4,18 @@
 
 var gulp = require('gulp');
 var connect = require('gulp-connect');
+
+gulp.task('default', function () { console.log('setting up server!') });
+
 gulp.task('connect', function() {
     connect.server({
         root: 'app/', //Our application code will live inside of app/
         port: 8888
     });
 });
-// gulp.task('default', ['connect]); example of mapping a task
-gulp.task('copy-html-files', function(){
-    gulp.src(['./app/**/*.html', './app/*.html'], {base: './app'})
+gulp.task('copy-html-files', function() {
+    gulp.src(['./app/**/*.html', '!./app/index.html'], {base: './app'})
+        .pipe(gulp.dest('build/'));
 });
 gulp.task('usemin', function() {
     gulp.src('./app/index.html')
@@ -22,5 +25,4 @@ gulp.task('usemin', function() {
         }))
         .pipe(gulp.dest('build/'));
 });
-
 gulp.task('build', ['copy-html-files', 'usemin']);
