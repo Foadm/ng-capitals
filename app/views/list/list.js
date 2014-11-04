@@ -10,8 +10,4 @@ angular.module('App')
                 })
         }
         $scope.getCountries();
-        $scope.select_country = function(countryCode){
-            $rootScope.$broadcast('send_country_code', countryCode);
-            $location.path( "/countryCode" );
-        }
     })
