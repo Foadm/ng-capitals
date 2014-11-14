@@ -4,19 +4,21 @@
 angular.module('App')
     .constant('URL_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000')
     .constant('COUNTRY_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000&country=')
-    .constant('CAPITAL_PATH', 'http://api.geonames.org/searchJSON?formatted=true&username=foadm_2000&q=capital&&style=full&country=')
+    .constant('CAPITAL_PATH', 'http://api.geonames.org/countryInfoJSON?username=mwhelan&country=')
     .constant('COUNTRY_NEIGHBORS', 'http://api.geonames.org/neighboursJSON?username=foadm_2000&country=')
-    .factory("CountryInfo", function($http, URL_PATH){
-        var request = {
-            callback: 'JSON_CALLBACK'
-        };
-        return function(){
-            return $http({
-                method: 'JSONP',
-                url: URL_PATH,
-                cache: true,
-                params: request
-            })
+    .factory("CountryInfo", function($http, URL_PATH, $q){
+        debugger;
+        return {
+            getCountries : function(){
+
+                var deferred = $q.defer();
+                $http.get(URL_PATH)
+                    .success(function(data){
+                        data : data
+                    });
+                return deferred.promise;
+
+            }
         }
     })
     .factory("countryDetail", function($route,$http, COUNTRY_PATH){
@@ -33,6 +35,7 @@ angular.module('App')
                 params: request
             })
         }
+
     })
     .factory("capitalDetail", function($route,$http, CAPITAL_PATH) {
         var country_code = $route.current.params.country;

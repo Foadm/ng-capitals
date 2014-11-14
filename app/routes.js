@@ -14,7 +14,10 @@ angular.module('App', ['ngRoute'])
             })
             .when('/countries/:country', {
                 templateUrl : 'views/detail/detail.html',
-                controller : 'DetailCtrl'
+                controller : 'DetailCtrl',
+                resolve:{
+
+                }
             })
             //.otherwise({
               //  redirectTo : '/error'
