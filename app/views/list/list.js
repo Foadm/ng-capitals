@@ -6,5 +6,4 @@ angular.module('App')
         CountryInfo.countryData.then(function(result){
             $scope.result  = result.geonames;
         });
-
     })
