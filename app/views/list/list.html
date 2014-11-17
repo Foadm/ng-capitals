@@ -11,7 +11,7 @@
                     <th>Continent</th>
                 </tr>
            <tbody>
-                 <tr ng-repeat="country in result.geonames" ng-click="select_country(country.countryCode)">
+                 <tr ng-repeat="country in result" ng-click="select_country(country.countryCode)">
                     <td><a href="#/countries/{{country.countryCode}}">{{country.countryName}}</a></td>
                     <td>{{country.countryCode}}</td>
                     <td>{{country.capital}}</td>

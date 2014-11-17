@@ -6,19 +6,20 @@ angular.module('App')
     .constant('COUNTRY_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000&country=')
     .constant('CAPITAL_PATH', 'http://api.geonames.org/countryInfoJSON?username=mwhelan&country=')
     .constant('COUNTRY_NEIGHBORS', 'http://api.geonames.org/neighboursJSON?username=foadm_2000&country=')
-    .factory("CountryInfo", function($http, URL_PATH, $q){
-        debugger;
+    .factory("CountryInfo", function($http, URL_PATH){
+        var request = {
+            callback: 'JSON_CALLBACK'
+        };
+        var countryData = $http({
+                method: 'JSONP',
+                url: URL_PATH,
+                cache: true,
+                params: request
+            }).then(function(result){
+            return result.data;
+        })
         return {
-            getCountries : function(){
-
-                var deferred = $q.defer();
-                $http.get(URL_PATH)
-                    .success(function(data){
-                        data : data
-                    });
-                return deferred.promise;
-
-            }
+            countryData : countryData
         }
     })
     .factory("countryDetail", function($route,$http, COUNTRY_PATH){

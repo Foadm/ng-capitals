@@ -2,10 +2,9 @@
  * Created by mozafff on 10/29/2014.
  */
 angular.module('App')
-    .controller('ListCtrl', function($scope,$rootScope, $location,CountryInfo){
-        $scope.getCountries = function(){ // I need to refactor this into a resolve function in the routes.js
-            CountryInfo();
+    .controller('ListCtrl', function($scope,CountryInfo){
+        CountryInfo.countryData.then(function(result){
+            $scope.result  = result.geonames;
+        });
 
-        }
-        $scope.getCountries();
     })
