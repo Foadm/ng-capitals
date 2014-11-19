@@ -3,7 +3,6 @@
  */
 angular.module('App')
     .controller('DetailCtrl', function($scope, CountryInfo){
-        debugger
         CountryInfo.countryData()
             .success(function(data){
                     $scope.result = data.geonames;
@@ -12,7 +11,7 @@ angular.module('App')
             .success(function(data){
                     $scope.capResult = data.geonames;
                 })
-        CountryInfo().neighborsData()
+        CountryInfo.neighborsData()
             .success(function(data){
                     $scope.neighborResult = data.geonames;
                 })

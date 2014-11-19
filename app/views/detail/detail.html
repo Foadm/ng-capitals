@@ -24,7 +24,7 @@
                 <tr>
                     <td>3 neighbors</td>
                     <td>
-                       <span ng-repeat="neighbors in neighborresult | filter:query | limitTo:quantity">
+                       <span ng-repeat="neighbors in neighborResult | filter:query | limitTo:quantity">
                            <a href="#/countries/{{neighbors.countryCode}}">{{neighbors.countryName}}</a> </span>
                     </td>
                 </tr>
