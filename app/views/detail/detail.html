@@ -2,29 +2,29 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <h3>{{result.geonames[0].countryName}}</h3>
+            <h3>{{result[0].countryName}}</h3>
             <table class="table table-bordered table-hover">
                 <tbody>
                 <tr>
                     <td>Population of Country</td>
-                    <td>{{result.geonames[0].population}}</td>
+                    <td>{{result[0].population}}</td>
                 </tr>
                 <tr>
                     <td>Area</td>
-                    <td>{{result.geonames[0].areaInSqKm}} square km</td>
+                    <td>{{result[0].areaInSqKm}} square km</td>
                 </tr>
                 <tr>
                     <td>Capital</td>
-                    <td>{{result.geonames[0].capital}}</td>
+                    <td>{{result[0].capital}}</td>
                 </tr>
                 <tr>
                     <td>Population of capital</td>
-                    <td>{{capResult.geonames[0].population}}</td>
+                    <td>{{capresult[0].population}}</td>
                 </tr>
                 <tr>
                     <td>3 neighbors</td>
                     <td>
-                       <span ng-repeat="neighbors in neighborResult.geonames | filter:query | limitTo:quantity">
+                       <span ng-repeat="neighbors in neighborresult | filter:query | limitTo:quantity">
                            <a href="#/countries/{{neighbors.countryCode}}">{{neighbors.countryName}}</a> </span>
                     </td>
                 </tr>
@@ -35,8 +35,8 @@
     </div>
     <div class="row">
         <div class="col-md-3"></div>
-        <div class="col-md-3"><img src="http://www.geonames.org/flags/x/{{result.geonames[0].countryCode | lowercase}}.gif" style="width:100%;"/></div>
-        <div class="col-md-3"><img id='myImage' src="http://www.geonames.org/img/country/250/{{result.geonames[0].countryCode}}.png" /></div>
+        <div class="col-md-3"><img src="http://www.geonames.org/flags/x/{{result[0].countryCode | lowercase}}.gif" style="width:100%;"/></div>
+        <div class="col-md-3"><img id='myImage' src="http://www.geonames.org/img/country/250/{{result[0].countryCode}}.png" /></div>
         <div class="col-md-3"></div>
     </div>
 </div>

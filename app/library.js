@@ -4,31 +4,29 @@
 angular.module('App')
     .constant('URL_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000')
     .constant('COUNTRY_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000&country=')
-    .constant('CAPITAL_PATH', 'http://api.geonames.org/countryInfoJSON?username=mwhelan&country=')
+    .constant('CAPITAL_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000&country=')
     .constant('COUNTRY_NEIGHBORS', 'http://api.geonames.org/neighboursJSON?username=foadm_2000&country=')
-    .factory("CountryInfo", function($http, URL_PATH){
+    .factory("CountryInfo", function($http,$route, URL_PATH, COUNTRY_PATH,CAPITAL_PATH, COUNTRY_NEIGHBORS ){
         var request = {
             callback: 'JSON_CALLBACK'
         };
-        var countryData = $http({
+        return ({
+            countriesData : countriesData,
+            countryData : countryData,
+            capitalData : capitalData,
+            neighborsData : neighborsData
+        });
+        function countriesData(){
+            return $http({
                 method: 'JSONP',
                 url: URL_PATH,
                 cache: true,
                 params: request
-            }).then(function(result){
-            return result.data;
-        })
-        return {
-            countryData : countryData
+            })
         }
-    })
-    .factory("countryDetail", function($route,$http, COUNTRY_PATH){
-        var country_code = $route.current.params.country;
-        var country_path = COUNTRY_PATH + country_code;
-        var request = {
-            callback: 'JSON_CALLBACK'
-        };
-        return function(){
+        function countryData(){
+            var country_code = $route.current.params.country;
+            var country_path = COUNTRY_PATH + country_code;
             return $http({
                 method: 'JSONP',
                 url: country_path,
@@ -36,15 +34,9 @@ angular.module('App')
                 params: request
             })
         }
-
-    })
-    .factory("capitalDetail", function($route,$http, CAPITAL_PATH) {
-        var country_code = $route.current.params.country;
-        var capital_path = CAPITAL_PATH + country_code;
-        var request = {
-            callback: 'JSON_CALLBACK'
-        };
-        return function () {
+        function capitalData(){
+            var country_code = $route.current.params.country;
+            var capital_path = CAPITAL_PATH + country_code;
             return $http({
                 method: 'JSONP',
                 url: capital_path,
@@ -52,14 +44,9 @@ angular.module('App')
                 params: request
             })
         }
-    })
-    .factory("countryNeighbors", function ($route,$http, COUNTRY_NEIGHBORS){
-        var country_code = $route.current.params.country;
-        var neighbors_path = COUNTRY_NEIGHBORS + country_code;
-        var request = {
-            callback: 'JSON_CALLBACK'
-        };
-        return function () {
+        function neighborsData(){
+            var country_code = $route.current.params.country;
+            var neighbors_path = COUNTRY_NEIGHBORS + country_code;
             return $http({
                 method: 'JSONP',
                 url: neighbors_path,
@@ -67,4 +54,6 @@ angular.module('App')
                 params: request
             })
         }
+
     })
+
