@@ -7,3 +7,4 @@ angular.module('App')
             $scope.result = result.geonames;
         })
     });
+
