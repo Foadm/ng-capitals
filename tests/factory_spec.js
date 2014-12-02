@@ -1,18 +1,13 @@
 /**
  * Created by mozafff on 11/19/2014.
  */
-describe("CountryInfo", function() {
+describe("test", function() {
     beforeEach(module('App'));
-    beforeEach(module(function ($provide) {
-        $provide.value('countriesData', {
-            someVariable: 1
+    it('should return "herrow" when called', function(){
+        inject(function(test){
+           expect(test()).toBe("herrow");
         });
-    }));
-    it('should query the API and get a list of the countries',
-        inject(function(CountryInfo) {
-
-        }));
-
+    });
 });
 
 
