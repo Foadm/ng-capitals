@@ -1,13 +1,11 @@
-/**
- * Created by mozafff on 10/29/2014.
- */
-angular.module('App')
+
+angular.module('App', [])
     .constant('URL_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000')
     .constant('COUNTRY_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000&country=')
     .constant('CAPITAL_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000&country=')
     .constant('COUNTRY_NEIGHBORS', 'http://api.geonames.org/neighboursJSON?username=foadm_2000&country=')
     .factory('test', function(){
-        return function(){
+        function testFunc(){
             return 'herrow'
         }
     })
@@ -61,4 +59,9 @@ angular.module('App')
         }
 
     })
-
+angular.module('HelloModule', [])
+    .factory('helloService', function() {
+        return function() {
+            return 'hello';
+        }
+    });

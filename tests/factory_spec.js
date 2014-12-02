@@ -1,15 +1,10 @@
-/**
- * Created by mozafff on 11/19/2014.
- */
+
 describe("test", function() {
     beforeEach(module('App'));
-    it('should return "herrow" when called', function(){
-        inject(function(test){
-           expect(test()).toBe("herrow");
-        });
-    });
+    it('should return "herrow" when called', inject(function(test) {
+        expect(test()).toBe("herrow");
+    }));
 });
-
 
 
 // CountryInfo, $rootScope, $httpBackend
