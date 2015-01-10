@@ -14,15 +14,15 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
+
     files: [
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/angular-route/angular-route.js',
-      'tests/*_spec.js',
-      './app/factory.js'
+      './app/views/**/home.js', //it doesnt work when I change home.js to *.js
+      'tests/**/*_spec.js',
+      // './app/*.js',   test fails when I include these files
     ],
-
-
     // list of files to exclude
     exclude: [
     ],

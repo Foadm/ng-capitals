@@ -1,11 +1,4 @@
 
-describe("test", function() {
-    beforeEach(module('App'));
-    it('should return "herrow" when called', inject(function(test) {
-        expect(test()).toBe("herrow");
-    }));
-});
-
 
 // CountryInfo, $rootScope, $httpBackend
 

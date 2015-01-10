@@ -1,6 +1,3 @@
-/**
- * Created by mozafff on 10/29/2014.
- */
 
 angular.module('App', ['ngRoute'])
     .config(function($routeProvider){
@@ -19,7 +16,7 @@ angular.module('App', ['ngRoute'])
 
                 }
             })
-            //.otherwise({
-              //  redirectTo : '/error'
-            //})
-    });
+            .otherwise({
+               redirectTo : '/error'
+            })
+    })

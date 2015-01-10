@@ -4,11 +4,6 @@ angular.module('App', [])
     .constant('COUNTRY_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000&country=')
     .constant('CAPITAL_PATH', 'http://api.geonames.org/countryInfoJSON?username=foadm_2000&country=')
     .constant('COUNTRY_NEIGHBORS', 'http://api.geonames.org/neighboursJSON?username=foadm_2000&country=')
-    .factory('test', function(){
-        function testFunc(){
-            return 'herrow'
-        }
-    })
     .factory("CountryInfo", function($http,$route, URL_PATH, COUNTRY_PATH,CAPITAL_PATH, COUNTRY_NEIGHBORS ){
         var request = {
             callback: 'JSON_CALLBACK'
@@ -58,10 +53,5 @@ angular.module('App', [])
             })
         }
 
-    })
-angular.module('HelloModule', [])
-    .factory('helloService', function() {
-        return function() {
-            return 'hello';
-        }
     });
+
